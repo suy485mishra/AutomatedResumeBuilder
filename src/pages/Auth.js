@@ -1,11 +1,32 @@
 import { logDOM } from '@testing-library/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Logo from '../assets/img/logo.jpg'
 import { Footer } from '../containers'
-import { AuthButton } from '../components'
+import { AuthButton, MainSpinner } from '../components'
 import {FaGoogle, FaGithub} from 'react-icons/fa6'
+import { toast } from 'react-toastify'
+// our custom hook
+import useUser from '../hooks/useUser'
+import { useNavigate } from 'react-router-dom'
+
 
 const Auth = () => {
+  const {data,isLoading,isError}=useUser();
+  
+  const navigate=useNavigate();
+
+  useEffect(()=>{
+    //return back to homescreen
+    if(!isLoading && data){
+      navigate('/',{replace:true});
+    }
+  },[isLoading,data])
+
+ //show spinner if loading
+ if(isLoading){
+  return <MainSpinner/>
+ }
+
   return( 
   <div className='auth-section'>
 
@@ -19,9 +40,9 @@ const Auth = () => {
   <p className='text-2xl text-gray-600'>Crafting Resumes, Building Futures</p>
   <h2 className='text-2xl text-gray-600'>Authenticate</h2>
 
-  <div className=' flex flex-col w-full lg:w-96  items-center justify-start gap-6 rounded-md bg-red-100 p-2'>
-<AuthButton Icon={FaGoogle} label={'SignIn with Google'} provider={'GoogleAuthProvider'}/>
-<AuthButton Icon={FaGithub} label={'SignIn with Github'} provider={'GithubAuthProvider'}/>
+  <div className=' flex flex-col w-full lg:w-96  items-center justify-start gap-6 rounded-md p-2'>
+<AuthButton Icon={FaGoogle} label={'Sign in with Google'} provider={'GoogleAuthProvider'}/>
+<AuthButton Icon={FaGithub} label={'Sign in with Github'} provider={'GithubAuthProvider'}/>
   </div>
    </div>
 
