@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 //home &auth route
-import { HomeScreen, Auth, CreateTemplate ,UserProfile,CreateResume,TemplateDesignPinDetails} from "../pages";
+import { HomeScreen, Auth, UserProfile, AdminDashboard, AboutUs, ContactUs} from "../pages";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ToastContainer, toast } from "react-toastify";
@@ -17,11 +17,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/template/create" element={<><Header /> <CreateTemplate/></>} />
+          <Route path="/admin/dashboard" element={<><Header /> <AdminDashboard/></>} />
           <Route path="/profile/:uid" element={<><Header /> <UserProfile/></>}/>
-          <Route path="/resume/*" element={<><Header /> <CreateResume/></>}/>
-          <Route path="/resumeDetail/:templateID" element={<><Header /> <TemplateDesignPinDetails/></>}/>
-
+          <Route path="/aboutus" element={<><Header /> <AboutUs/></>}/>
+          <Route path="/contactus" element={<><Header /> <ContactUs/></>}/>
+          {/* <Route path="/resumeDetail/:templateID" element={<><Header /> <TemplateDesignPinDetails/></>}/> */}
            
         </Routes>
       </Suspense>

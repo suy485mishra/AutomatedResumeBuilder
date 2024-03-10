@@ -103,19 +103,30 @@ const Header = () => {
                     pt-6">
                       <Link className="text-txtLight hover:text-txtDark 
                       text-base whitespace-nowrap"
-                      to={"/profile"}>
+                      to={"/profile/1213"}>
                       My Account
+                      </Link>
+                      <Link className="text-txtLight hover:text-txtDark 
+                      text-base whitespace-nowrap"
+                      to={"/aboutus"}>
+                      About Us
+                      </Link>
+                      <Link className="text-txtLight hover:text-txtDark 
+                      text-base whitespace-nowrap"
+                      to={"/contactus"}>
+                      Contact Us
                       </Link>
                      {
                       adminIds.includes(data?.uid) && (
                         <Link className="text-txtLight hover:text-txtDark 
                       text-base whitespace-nowrap"
-                      to={"/template/create"}>
-                      Add New Template
+                      to={"/admin/dashboard"}>
+                      Admin Dashboard
                       </Link>
                       )
                      }
 
+                      
                       <div className="w-full px-2 py-2 border-t border-gray-300
                       flex items-center justify-between group cursor-pointer" onClick={signOutUser}>
                         <p className="group-hover:text-txtDark

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Logo from "../assets/img/logo.jpg";
+import {Logo} from "../assets";
 import { Footer } from "../containers";
 import { AuthButton, MainSpinner } from "../components";
 import { FaGoogle, FaGithub } from "react-icons/fa6";
@@ -33,10 +33,10 @@ const Auth = () => {
       {/* main-part */}
       <div className="w-full flex flex-1 flex-col items-center justify-center gap-6">
         <h1 className="text-3xl lg:text-4xl text-blue-700">
-          Welcome to Talentforge
+          Welcome to NITUK Tech Club.
         </h1>
         <p className="text-2xl text-gray-600">
-          Crafting Resumes, Building Futures
+          Empowering tomorrow's innovators. Join the Tech Club revolution.
         </p>
         <h2 className="text-2xl text-gray-600">Authenticate</h2>
 
