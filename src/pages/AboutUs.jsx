@@ -5,6 +5,7 @@ import { Fade } from 'react-awesome-reveal'; // Importing Fade animation
 const AboutUs = () => {
   return (
     <div className="container mx-auto my-8 p-8 bg-white rounded shadow-md text-center">
+    
       <Fade cascade triggerOnce>
         <div>
           <h1 className="text-3xl font-bold mb-6 text-blue-800">Welcome to NITUK TechClub</h1>
